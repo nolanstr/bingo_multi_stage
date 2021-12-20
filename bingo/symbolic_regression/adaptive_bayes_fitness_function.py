@@ -132,7 +132,8 @@ class BayesFitnessFunction(FitnessFunction):
             except:
                 pass
             count += 1
-
+        if len(param_dists) == 0:
+            raise ValueError 
         pdf, samples = self._get_samples_and_pdf(param_dists, num_samples)
 
         print(f'Number of Successful restarts: {len(param_dists)}')

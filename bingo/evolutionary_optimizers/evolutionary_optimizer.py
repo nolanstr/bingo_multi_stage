@@ -305,7 +305,10 @@ class EvolutionaryOptimizer(metaclass=ABCMeta):
     def update_hall_of_fame(self):
         """Manually update the hall of fame"""
         if self.hall_of_fame is not None:
-            self.hall_of_fame.update(self._get_potential_hof_members())
+            members = self._get_potential_hof_members()
+            
+            self.hall_of_fame.update(members)
+
             LOGGER.debug("Hall of fame updated")
 
     @abstractmethod
